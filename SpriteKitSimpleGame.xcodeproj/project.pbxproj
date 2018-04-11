@@ -15,6 +15,13 @@
 		2A439DE8206C56F700B188BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A439DE6206C56F700B188BF /* Main.storyboard */; };
 		2A439DEA206C56F700B188BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A439DE9206C56F700B188BF /* Assets.xcassets */; };
 		2A439DED206C56F700B188BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A439DEB206C56F700B188BF /* LaunchScreen.storyboard */; };
+		2A439DF7206C5A5B00B188BF /* background-music-aac.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2A439DF5206C5A5B00B188BF /* background-music-aac.caf */; };
+		2A439DF8206C5A5B00B188BF /* pew-pew-lei.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2A439DF6206C5A5B00B188BF /* pew-pew-lei.caf */; };
+		2A439DFA206C702D00B188BF /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A439DF9206C702D00B188BF /* GameOverScene.swift */; };
+		2AC899662075A141006B91AE /* StartScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC899652075A141006B91AE /* StartScene.swift */; };
+		2AC8996A2075A9AB006B91AE /* ProjectileParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2AC899692075A9AB006B91AE /* ProjectileParticle.sks */; };
+		2AC8996E2075AA9B006B91AE /* DeathParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2AC8996D2075AA9B006B91AE /* DeathParticle.sks */; };
+		2AC899702075AE4D006B91AE /* BloodParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2AC8996F2075AE4D006B91AE /* BloodParticle.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +35,13 @@
 		2A439DE9206C56F700B188BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2A439DEC206C56F700B188BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2A439DEE206C56F700B188BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2A439DF5206C5A5B00B188BF /* background-music-aac.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "background-music-aac.caf"; sourceTree = "<group>"; };
+		2A439DF6206C5A5B00B188BF /* pew-pew-lei.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "pew-pew-lei.caf"; sourceTree = "<group>"; };
+		2A439DF9206C702D00B188BF /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
+		2AC899652075A141006B91AE /* StartScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScene.swift; sourceTree = "<group>"; };
+		2AC899692075A9AB006B91AE /* ProjectileParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ProjectileParticle.sks; sourceTree = "<group>"; };
+		2AC8996D2075AA9B006B91AE /* DeathParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = DeathParticle.sks; sourceTree = "<group>"; };
+		2AC8996F2075AE4D006B91AE /* BloodParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BloodParticle.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +74,7 @@
 		2A439DDB206C56F700B188BF /* SpriteKitSimpleGame */ = {
 			isa = PBXGroup;
 			children = (
+				2A439DF4206C5A5B00B188BF /* Sounds */,
 				2A439DDC206C56F700B188BF /* AppDelegate.swift */,
 				2A439DDE206C56F700B188BF /* GameScene.sks */,
 				2A439DE0206C56F700B188BF /* Actions.sks */,
@@ -69,8 +84,22 @@
 				2A439DE9206C56F700B188BF /* Assets.xcassets */,
 				2A439DEB206C56F700B188BF /* LaunchScreen.storyboard */,
 				2A439DEE206C56F700B188BF /* Info.plist */,
+				2A439DF9206C702D00B188BF /* GameOverScene.swift */,
+				2AC899652075A141006B91AE /* StartScene.swift */,
+				2AC899692075A9AB006B91AE /* ProjectileParticle.sks */,
+				2AC8996D2075AA9B006B91AE /* DeathParticle.sks */,
+				2AC8996F2075AE4D006B91AE /* BloodParticle.sks */,
 			);
 			path = SpriteKitSimpleGame;
+			sourceTree = "<group>";
+		};
+		2A439DF4206C5A5B00B188BF /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				2A439DF5206C5A5B00B188BF /* background-music-aac.caf */,
+				2A439DF6206C5A5B00B188BF /* pew-pew-lei.caf */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -132,9 +161,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AC899702075AE4D006B91AE /* BloodParticle.sks in Resources */,
+				2A439DF8206C5A5B00B188BF /* pew-pew-lei.caf in Resources */,
 				2A439DE8206C56F700B188BF /* Main.storyboard in Resources */,
+				2AC8996A2075A9AB006B91AE /* ProjectileParticle.sks in Resources */,
 				2A439DDF206C56F700B188BF /* GameScene.sks in Resources */,
+				2A439DF7206C5A5B00B188BF /* background-music-aac.caf in Resources */,
 				2A439DEA206C56F700B188BF /* Assets.xcassets in Resources */,
+				2AC8996E2075AA9B006B91AE /* DeathParticle.sks in Resources */,
 				2A439DED206C56F700B188BF /* LaunchScreen.storyboard in Resources */,
 				2A439DE1206C56F700B188BF /* Actions.sks in Resources */,
 			);
@@ -149,6 +183,8 @@
 			files = (
 				2A439DE3206C56F700B188BF /* GameScene.swift in Sources */,
 				2A439DE5206C56F700B188BF /* GameViewController.swift in Sources */,
+				2A439DFA206C702D00B188BF /* GameOverScene.swift in Sources */,
+				2AC899662075A141006B91AE /* StartScene.swift in Sources */,
 				2A439DDD206C56F700B188BF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
