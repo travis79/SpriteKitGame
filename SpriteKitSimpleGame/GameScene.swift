@@ -48,9 +48,47 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var highScore = 0
     var highScoreLabel: SKLabelNode!
     var scoreLabel: SKLabelNode!
-    let userDefaults = UserDefaults.standard   
+    let userDefaults = UserDefaults.standard
+    var backgroundNode1: SKSpriteNode!
+    var backgroundNode2: SKSpriteNode!
 
     override func didMove(to view: SKView) {
+        backgroundNode1 = SKSpriteNode(imageNamed: "backgroundImg")
+        backgroundNode2 = SKSpriteNode(imageNamed: "backgroundImg")
+        
+        backgroundNode1.position = CGPoint(x: size.width/2, y: size.height / 2)
+        backgroundNode2.position = CGPoint(
+            x: backgroundNode1.position.x + backgroundNode1.size.width,
+            y: size.height / 2)
+        
+        backgroundNode1.zPosition = -100
+        backgroundNode2.zPosition = -100
+        
+        let bgAnimation = SKAction.moveBy(x: -100.0, y: 0, duration: 1.0)
+        let checkBg1 = SKAction.run {
+            if self.backgroundNode1.position.x <= -(self.backgroundNode1.size.width / 2) {
+                self.backgroundNode1.position = CGPoint(
+                    x: self.backgroundNode2.position.x + self.backgroundNode2.size.width,
+                    y: self.size.height / 2)
+            }
+        }
+        let checkBg2 = SKAction.run {
+            if self.backgroundNode2.position.x <= -(self.backgroundNode2.size.width / 2) {
+                self.backgroundNode2.position = CGPoint(
+                    x: self.backgroundNode1.position.x + self.backgroundNode1.size.width,
+                    y: self.size.height / 2)
+            }
+        }
+        
+        let bg1Animation = SKAction.repeatForever(SKAction.sequence([bgAnimation, checkBg1]))
+        let bg2Animation = SKAction.repeatForever(SKAction.sequence([bgAnimation, checkBg2]))
+        
+        backgroundNode1.run(bg1Animation)
+        backgroundNode2.run(bg2Animation)
+        
+        addChild(backgroundNode1)
+        addChild(backgroundNode2)
+        
         backgroundColor = SKColor.darkGray
         player.position = CGPoint(x: size.width * 0.1, y: size.height * 0.5)
         addChild(player)
@@ -113,7 +151,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         addChild(monster)
         
-        let actualDuration = random(min: CGFloat(2.0), max: CGFloat(4.0))
+        let actualDuration = random(min: CGFloat(4.0), max: CGFloat(8.0))
         
         let actionMove = SKAction.move(to: CGPoint(x: -monster.size.width/2, y: actualY), duration: TimeInterval(actualDuration))
         
@@ -159,9 +197,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         projectile.physicsBody?.collisionBitMask = PhysicsCategory.None
         projectile.physicsBody?.usesPreciseCollisionDetection = true
         
-        let emitter = SKEmitterNode(fileNamed: "ProjectileParticle")
-        emitter?.targetNode = self
-        projectile.addChild(emitter!)
+//        let emitter = SKEmitterNode(fileNamed: "ProjectileParticle")
+//        emitter?.targetNode = self
+//        projectile.addChild(emitter!)
         
         let offset = touchLocation - projectile.position
         

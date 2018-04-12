@@ -34,7 +34,7 @@ class GameOverScene: SKScene {
         label.fontSize = 40
         label.fontColor = SKColor.black
         label.position = CGPoint(x: size.width/2, y: size.height/2)
-        label.addChild(emitter!)
+//        label.addChild(emitter!)
         addChild(label)
         
         let killRatioLabel = SKLabelNode(fontNamed: "System")
@@ -42,7 +42,7 @@ class GameOverScene: SKScene {
         if (totalDeaths != 0) {
             killRatio = Double(totalHits) / Double(totalDeaths)
         }
-        killRatioLabel.text = "Kills to Deaths: \(killRatio)"
+        killRatioLabel.text = "Kills to Deaths: \(String(format: "%.02f", killRatio))"
         killRatioLabel.fontSize = 20
         killRatioLabel.fontColor = SKColor.black
         killRatioLabel.position = CGPoint(x: size.width / 2,
@@ -54,11 +54,12 @@ class GameOverScene: SKScene {
         if (totalShots != 0) {
             accuracy = Double(totalHits) / Double(totalShots)
         }
-        accuracyLabel.text = "Accuracy: \(accuracy)"
+        accuracyLabel.text = "Accuracy: \(String(format: "%.02f", accuracy))"
         accuracyLabel.fontSize = 20
         accuracyLabel.fontColor = SKColor.black
         accuracyLabel.position = CGPoint(x: size.width / 2,
                                           y: killRatioLabel.position.y - accuracyLabel.frame.height)
+        accuracyLabel.addChild(emitter!)
         addChild(accuracyLabel)
         
         run(SKAction.sequence([
