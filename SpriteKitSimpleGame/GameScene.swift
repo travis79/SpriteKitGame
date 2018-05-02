@@ -230,7 +230,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         print("Hit")
         projectile.removeFromParent()
         
-        let deathEmitter = SKEmitterNode(fileNamed: "DeathParticle")
+        let deathEmitter = SKEmitterNode(fileNamed: "BloodParticle")
         deathEmitter?.position = monster.position
         let emitterAction = SKAction.fadeOut(withDuration: 1.0)
         deathEmitter?.run(SKAction.sequence([emitterAction, SKAction.removeFromParent()]))
