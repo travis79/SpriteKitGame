@@ -197,10 +197,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         projectile.physicsBody?.collisionBitMask = PhysicsCategory.None
         projectile.physicsBody?.usesPreciseCollisionDetection = true
         
-//        let emitter = SKEmitterNode(fileNamed: "ProjectileParticle")
-//        emitter?.targetNode = self
-//        projectile.addChild(emitter!)
-        
         let offset = touchLocation - projectile.position
         
         if (offset.x < 0) {
